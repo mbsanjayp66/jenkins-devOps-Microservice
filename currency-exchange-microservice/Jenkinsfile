@@ -7,7 +7,7 @@ pipeline {
 	environment{
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'my-maven'
-		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"+"/currency-exchange-microservice"
 	}
 
 	stages{
@@ -18,7 +18,7 @@ pipeline {
 			echo "Build"
 		}
 	      }
-	      stage('Build'){
+	      stage('Compile'){
 		steps{
 			sh 'mvn clean compile'
 		}
